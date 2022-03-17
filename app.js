@@ -12,7 +12,6 @@ const  main = async() => {
     const tareas = new Tareas();
 
     const tareasDB = leerDB();
-    await pausa(opt.opcionSeleccionada);
     if(tareasDB) {
        tareas.cargarTareas(tareasDB);
     }
@@ -26,7 +25,13 @@ const  main = async() => {
                 tareas.crearTarea(descripcion);
                 break;
             case '2':
-                console.log(tareas.listarTareasArray);
+                tareas.listarTareas();
+                break;
+            case '3':
+                tareas.listarPendientesCompletadas(true);
+                break;
+            case '4':
+                tareas.listarPendientesCompletadas(false);
                 break;
         }
 
