@@ -35,6 +35,12 @@ class Tareas {
         })
     }
 
+    borrarTarea(id='') {
+        if (this.listaDeTareas[id]){
+            delete this.listaDeTareas[id];
+        }
+    }
+
     get listarTareasArray() {
         const listado = [];
         Object.keys(this.listaDeTareas).forEach(key => {
