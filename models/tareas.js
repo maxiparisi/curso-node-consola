@@ -48,6 +48,17 @@ class Tareas {
         })
         return listado;
     }
+
+    toggleCompletadas(ids = []) {
+        ids.forEach(id => {
+            const tarea = this.listaDeTareas[id];
+            if (!tarea.completadoEn) {
+                tarea.completadoEn = new Date().toISOString();
+            }
+        })
+
+        this.listarTareasArray.filter(tarea => !ids.includes(tarea.id)).forEach(tarea => tarea.completadoEn = null);
+    }
 }
 
 module.exports = Tareas;
